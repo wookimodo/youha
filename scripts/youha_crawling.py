@@ -58,7 +58,7 @@ def run():
         imgUrl = youtuber.find_element(By.CSS_SELECTOR,'img.MuiAvatar-img.mui-style-1hy9t21').get_attribute('src').strip()
         name = youtuber.find_element(By.CSS_SELECTOR,'p.MuiTypography-root.MuiTypography-body1.mui-style-1hxmejr').text.strip()
         link = youtuber.find_element(By.CSS_SELECTOR,'div.MuiBox-root.mui-style-k008qs a').get_attribute('href').strip()
-        subscribers = youtuber.find_elements(By.CSS_SELECTOR,'div.MuiDataGrid-cell--withRenderer.MuiDataGrid-cell.MuiDataGrid-cell--textRight')[0].text.strip()
+        subscribers = int(youtuber.find_elements(By.CSS_SELECTOR,'div.MuiDataGrid-cell--withRenderer.MuiDataGrid-cell.MuiDataGrid-cell--textRight')[0].text.replace(',','').strip())
         print(f"index : {index}, name : {name}, subscribers, {subscribers}, link : {link}, imgUrl : {imgUrl}")
         youtuberDict[index] = {'name' : name, 'subscribers' : subscribers, 'link' : link, 'imgUrl' : imgUrl}
         index += 1
