@@ -30,8 +30,8 @@ urlpatterns = [
 
     path('', index, name='index'),
 
-    # path('youtuber/', YoutuberView.as_view()),
+    path('youtuber/', YoutuberView.as_view()),
 
-    path('youtuber/', include('youtuber.urls')),
+    # path('youtuber/', include('youtuber.urls')),
 
 ]

@@ -68,10 +68,19 @@ class YoutuberViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         queryset = Youtuber.objects.all()
+
+        # name은 contain으로 검색
         name = self.request.query_params.get('name')
         if name:
             queryset = queryset.filter(name__icontains=name)
+
+        # 구독자는 이상으로 get
+        subscribers = self.request.query_params.get('subscribers')
+        if subscribers:
+            queryset = queryset.filter(subscribers__gte=subscribers)
+
         return queryset
+    
     
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
