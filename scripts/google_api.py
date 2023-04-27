@@ -73,7 +73,8 @@ sentiment = pd.DataFrame(result,columns=['author','comment','date','sentiment','
 
 # 감성 분석결과를 json파일로 저장
 sentiment_dict = {}
-tmp = {}
+channel_dict = {}
+video_dict = {}
 length = len(sentiment)
 
 for i in range(length):
@@ -85,6 +86,7 @@ for i in range(length):
         'sentiment':sentiment.iloc[i]['sentiment'], 
         'score':sentiment.iloc[i]['score']
                          }
-tmp[channel] = sentiment_dict
+video_dict[video_id] = sentiment_dict
+channel_dict[channel] = video_dict
 
-toJson(tmp,"sentiment")
+toJson(channel_dict,f"{channel[:2]}_analysis")
