@@ -23,9 +23,15 @@ router = routers.DefaultRouter()
 router.register(r'youtuber', YoutuberViewSet)
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
+
+    path('api/v1/', include(router.urls)),
+
     path('', index, name='index'),
-    path('api/', include(router.urls)),
-     path('youtuber/', YoutuberView.as_view()),
+
+    # path('youtuber/', YoutuberView.as_view()),
+
+    path('youtuber/', include('youtuber.urls')),
 
 ]

@@ -314,6 +314,7 @@ footer p {
 }
 .list-page .search-area {
   margin: 0 auto;
+  margin-bottom: 20px;
   max-width: 1500px;
   text-align: center;
   border-bottom: 2px solid var(--main-color);
@@ -575,7 +576,14 @@ footer p {
 .content > .list-area > ul {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+.content > .list-area > ul > li {
+  /* 각 리스트 아이템에 너비 값을 지정하여 3열로 정렬합니다. */
+  width: calc(33.33% - 10px);
+  margin-bottom: 20px; /* 각 아이템 간의 간격을 지정합니다. */
 }
 .content > .list-area .list-card {
   width: calc(25% - 1.2rem);
@@ -685,7 +693,7 @@ footer p {
   margin-right: 3px;
 }
 .content > .list-area.skill {
-  margin-top: -6rem;
+  margin-top: 0rem;
 }
 .content > .list-area.skill .list-card {
   width: calc(33.3333333333% - 0.8rem);

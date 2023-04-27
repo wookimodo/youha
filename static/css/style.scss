@@ -243,7 +243,7 @@ footer {
 }
 
 .main-page {
-    background-image: url(../img/index.jpg);
+    background-image: url(../img/sub.jpg);
     background-position: 0 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -360,7 +360,7 @@ footer {
     }
 
     .search-area {
-        margin: 0 auto;
+        margin-bottom: 60px;
         max-width: 1500px;
         text-align: center;
         border-bottom: 2px solid var(--main-color);

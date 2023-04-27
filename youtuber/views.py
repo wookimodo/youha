@@ -15,11 +15,17 @@ from django.views.generic import TemplateView
 def index(request):
     return render(request, 'index.html')
 
+# 함수형
 @api_view(['GET', 'POST'])
 def youtuber_list(request):
 
     if request.method == 'GET':
-        youtubers = Youtuber.objects.all() # 쿼리셋
+
+        subscribers = request.query_params.get('subscribers')
+        if subscribers:
+            youtubers = Youtuber.objects.filter(subscribers=subscribers) # subscribers가 입력한 값 이상인 쿼리셋
+        else:
+            youtubers = Youtuber.objects.all() # 쿼리셋
         serializer = YoutuberSerializer(youtubers, many=True) # 쿼리셋을 json 형태로 변경
         return Response(serializer.data)
 
@@ -32,7 +38,8 @@ def youtuber_list(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+
+# 함수형
 @api_view(['GET', 'PUT', 'DELETE'])
 def youtuber_detail(request, pk):
 
@@ -58,6 +65,20 @@ def youtuber_detail(request, pk):
 class YoutuberViewSet(viewsets.ModelViewSet):
     queryset = Youtuber.objects.all()
     serializer_class = YoutuberSerializer
+
+    def get_queryset(self):
+        queryset = Youtuber.objects.all()
+        name = self.request.query_params.get('name')
+        if name:
+            queryset = queryset.filter(name__icontains=name)
+        return queryset
+    
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 class YoutuberView(TemplateView):
     template_name = 'list.vue'
