@@ -26,8 +26,8 @@ def toJson(res_dict,save_name):
  
 # 구글 댓글 google api로 가져오기
 api_key = 'AIzaSyBQD_9G1homrY2u9eHQEesEiOOyUEaQn0I'
-channel = "딩고 뮤직 / dingo music"
-video_id = 'N8mUqh0S80Y'
+channel = "DONA 도나"
+video_id = 'YqV8_4i5MRc'
  
 comments = list()
 api_obj = build('youtube', 'v3', developerKey=api_key)
@@ -61,7 +61,7 @@ classifier = pipeline(
 
 result = []
 df_length= len(df)
-for i in range(df_length):
+for i in range(200):
     comments = clean_text(df.iloc[i][0])
     if comments == "":
         continue

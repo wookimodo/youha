@@ -266,8 +266,15 @@ footer p {
       -ms-user-select: none;
           user-select: none;
 }
-.main-page > .container h2 {
-  margin-top: 50rem;
+.main-page > .container h2#first {
+  margin-top: 47rem;
+  color: var(--font-color);
+  font-size: 2.2rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+}
+.main-page > .container h2#second {
+  margin-top: 2rem;
   color: var(--font-color);
   font-size: 2.2rem;
   font-weight: 500;

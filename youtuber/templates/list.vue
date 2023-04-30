@@ -28,13 +28,13 @@
         {% include 'partials/navbar.html' %}
     </header>
     <div class="title-area">
-        <h2 class="page-title">youha</h2>
+        <h2 class="page-title">Youtuber List</h2>
     </div>
     <div class="search-area">
       <form  method="GET">
         {% csrf_token %}
         <div class="search-bar">
-            <input type="text" name="search" id="search-bar" placeholder="회사명을 입력해주세요!">
+            <input type="text" name="search" id="search-bar" placeholder="유튜버를 검색해주세요!">
             <button type="submit" class="search-btn">검색</button>
         </div>
     </form>
@@ -104,35 +104,6 @@ new Vue({
   }
 })
 </script>
-
-<!-- <script> 
-  export default {
-    name: 'Pagination',
-    data() {
-      return {
-        items: [],
-        currentPage: 1,
-        totalPages: null,
-      };
-    },
-    mounted() {
-      this.getPage(this.currentPage);
-    },
-    methods: {
-      getPage(pageNumber) {
-        axios.get(`/api/v1/youtuber/?page=${pageNumber}`)
-          .then(response => {
-            this.items = response.data.results;
-            this.currentPage = pageNumber;
-            this.totalPages = Math.ceil(response.data.count / response.data.results.length);
-          })
-          .catch(error => {
-            console.log(error);
-          });
-      },
-    },
-  };
-  </script> -->
   
 </body>
 
