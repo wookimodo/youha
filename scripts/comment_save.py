@@ -1,7 +1,6 @@
 from youtuber.models import Youtuber, Comment
 import json
 
-# Course data
 f = open(f'static/data/1M_analysis.json', encoding='UTF-8')
 comments = json.loads(f.read()) 
 
