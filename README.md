@@ -2,9 +2,18 @@
 
 <p align="center">
   <br>
-  <img src="./static/img/youha.jpg">
+  <img src="./static/img/youha2.jpg">
   <br>
 </p>
+
+### 초기세팅
+
+  1. test 가상환경 생성 및 활성화
+    - python -m venv test_venv
+    - test_venv>Scripts\activate.bat
+  2. test 폴더 생성 및 진입
+    - mkdir test
+    - cd test
  
 ### 주제
 
