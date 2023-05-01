@@ -31,20 +31,19 @@
         <h2 class="page-title">Youtuber List</h2>
     </div>
     <div class="search-area">
-      <form  method="GET">
-        {% csrf_token %}
         <div class="search-bar">
-            <input type="text" name="search" id="search-bar" placeholder="유튜버를 검색해주세요!">
+          <form @submit.prevent="submitForm">
+            <input type="text" v-model="searchTerm"  id="search-bar" placeholder="구현 예정입니다!">
             <button type="submit" class="search-btn">검색</button>
+          </form>
         </div>
-    </form>
     </div>
 
     <div class="content">
         <main class="list-area skill" >
             <div id="youtuber" >
                 <ul class="list-container">
-                  <li v-for="item in items" class="list-card">
+                  <li v-for="(item, key, index) in items" :key="index" class="list-card">
                     <div class="company-icon">
                       <a :href="item.link">
                         <img :src="item.imgUrl" alt="이미지" style="border-radius: 50%;">
@@ -63,22 +62,14 @@
                           <span v-text="item.subscribers.toLocaleString('en-US')"></span>
                           {{item.subscribers}}명
                         </h3>
+                        <h3>
+                          <a :href="'/api/v1/comment?name=' + item.id">댓글 api 보러가기&nbsp;</a>
+                        </h3>
                       </ul>
                   </div>
                   </li>
                 </ul>
               </div>
-
-              <template>
-                <div>
-                  <ul>
-                    <li v-for="(item, index) in items" :key="index">{{ item }}</li>
-                  </ul>
-                  <div>
-                    <button v-for="n in totalPages" :key="n" @click="getPage(n)">{{ n }}</button>
-                  </div>
-                </div>
-              </template>
 
 
         </main>

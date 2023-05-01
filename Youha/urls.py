@@ -16,11 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from youtuber.views import index, YoutuberViewSet, YoutuberView
+from youtuber.views import index, YoutuberViewSet, CommentViewSet, YoutuberView
 from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'youtuber', YoutuberViewSet)
+router.register(r'comment', CommentViewSet)
 
 urlpatterns = [
 

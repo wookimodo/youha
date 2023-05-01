@@ -2,13 +2,13 @@ from youtuber.models import Youtuber, Comment
 import json
 
 # Course data
-f = open(f'static/data/딩고_analysis.json', encoding='UTF-8')
+f = open(f'static/data/1M_analysis.json', encoding='UTF-8')
 comments = json.loads(f.read()) 
 
 def run():
 
-    channel = "딩고 뮤직 / dingo music"
-    video = "N8mUqh0S80Y"
+    channel = "1MILLION Dance Studio"
+    video = "WGG-0oJOIxE"
     comments_len = len(comments[channel][video])
 
     for i in range(comments_len):

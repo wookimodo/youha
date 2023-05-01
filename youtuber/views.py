@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from rest_framework.parsers import JSONParser
-from .models import Youtuber
-from .serializers import YoutuberSerializer
+from .models import Youtuber, Comment
+from .serializers import YoutuberSerializer, CommentSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -91,3 +91,17 @@ class YoutuberViewSet(viewsets.ModelViewSet):
 
 class YoutuberView(TemplateView):
     template_name = 'list.vue'
+
+class CommentViewSet(viewsets.ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+
+    def get_queryset(self):
+        queryset = Comment.objects.all()
+
+        # name은 contain으로 검색
+        name = self.request.query_params.get('name')
+        if name:
+            queryset = queryset.filter(name__exact=name)
+
+        return queryset

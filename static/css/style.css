@@ -92,7 +92,9 @@ header nav {
 }
 header nav ul {
   display: flex;
+  flex-wrap: nowrap;
   margin-left: 5rem;
+  width: 50%;
 }
 header nav ul li {
   list-style: none;
