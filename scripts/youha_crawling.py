@@ -19,7 +19,7 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), opti
 driver.implicitly_wait(500)
 driver.set_window_size(1500,1000)
 # ===================================================================================================================================================================
-# 제이슨 파일로 저장
+# 제이슨 파일로 저장하는 함수
 def toJson(res_dict,save_name):
     with open(f'{save_name}.json', 'w', encoding='utf-8') as file :
         json.dump(res_dict, file, ensure_ascii=False, indent='\t')
