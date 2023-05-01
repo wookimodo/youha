@@ -6,15 +6,7 @@
   <br>
 </p>
 
-### 초기세팅
 
-  1. test 가상환경 생성 및 활성화
-    - python -m venv test_venv
-    - test_venv>Scripts\activate.bat
-  2. test 폴더 생성 및 진입
-    - mkdir test
-    - cd test
- 
 ### 주제
 
   - 댓글을 통한 유튜버 호감도 분석
