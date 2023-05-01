@@ -5,6 +5,10 @@
   <img src="./static/img/youha2.jpg">
   <br>
 </p>
+
+### 초기세팅
+
+  - 댓글을 통한 유튜버 호감도 분석
  
 ### 주제
 
