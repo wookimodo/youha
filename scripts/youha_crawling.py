@@ -25,27 +25,6 @@ def toJson(res_dict,save_name):
         json.dump(res_dict, file, ensure_ascii=False, indent='\t')
 # ===================================================================================================================================================================
 
-# '더보기' 자동으로 누르기 함수
-# def more_main_page():
-#     more_css = "#reviews > div.cd-review__more > button"
-#     try:
-#       is_more = driver.find_element(By.CSS_SELECTOR, more_css).is_displayed()
-#     except Exception as e:
-#       is_more = False
-#     # true/ false
-
-#     while is_more:
-#         try:
-#             driver.find_element(
-#             By.CSS_SELECTOR,
-#             more_css
-#             ).send_keys(Keys.ENTER)
-#             time.sleep(2)
-#         except Exception as e:
-#             break
-
-
-# more_main_page()
 def run():
   index = 0
   youtuberDict = {}
@@ -66,34 +45,3 @@ def run():
         continue
   toJson(youtuberDict,f'youtuberData')
     
-    
-
-
-    # page = 8
-
-
-    # reviewDict = {}
-    # driver.get(f"http://www.statiz.co.kr/stat.php")
-    # for i in range(1,25):
-    #   review_list = []
-    #   driver.find_element(
-    #     By.CSS_SELECTOR,
-    #     f"#courses_section > div > div > div > main > div.courses_container > div > div:nth-child({i}) > div > a"
-    #     ).send_keys(Keys.ENTER)
-
-    #   # more_main_page()
-    #   title = driver.find_element(By.CSS_SELECTOR,'h1.cd-header__title').text.rstrip('\n대시보드')
-    #   items = driver.find_elements(By.CSS_SELECTOR,'div.review-el__body')
-    #   for item in items[:300]:
-    #       try:
-    #           review_list.append(item.text.strip())
-    #       except Exception as e:
-    #           continue
-    #   print('title : ', title)
-    #   print('---------------------------------------------------')
-    #   print('review : ', review_list)
-    #   print('---------------------------------------------------')
-    #   reviewDict[title] = {'review' : review_list}
-    #   driver.back()
-    
-    # toJson(reviewDict,f'reviewData{page}')

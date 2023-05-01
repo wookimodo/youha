@@ -1,7 +1,7 @@
 from youtuber.models import Youtuber, Comment
 import json
 
-# Course data
+# json 파일 불러오기
 f = open(f'static/data/youtuberData.json', encoding='UTF-8')
 youtuberData = json.loads(f.read()) 
 
@@ -10,6 +10,7 @@ comments = json.loads(f.read())
 
 def run():
 
+    # Youtuber Table 저장
     for i in youtuberData:
 
         name = youtuberData[i]['name']
@@ -21,6 +22,7 @@ def run():
 
     channelDict = {"1MILLION Dance Studio":"WGG-0oJOIxE", "DONA 도나":"YqV8_4i5MRc", "딩고 뮤직 / dingo music":"N8mUqh0S80Y", "Jane ASMR 제인":"DTkT6ToYwgc"}
 
+    # Comment Table 저장
     for (channel,video) in channelDict.items():
 
         comments_len = len(comments[channel][video])
