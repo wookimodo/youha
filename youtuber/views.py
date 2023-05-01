@@ -84,6 +84,7 @@ class YoutuberViewSet(viewsets.ModelViewSet):
 class YoutuberView(TemplateView):
     template_name = 'list.vue'
 
+# 프론트 작업 추후 예정
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
